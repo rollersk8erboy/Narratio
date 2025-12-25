@@ -1,0 +1,15 @@
+.content {
+    z-index: 1;
+    min-height: 100vh;
+    margin-left: 250px;
+    padding-top: 80px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background: rgb(241, 241, 241);
+}
+
+@media screen and (max-width: 767px) {
+    .content {
+        margin-left: 0px;
+    }
+}

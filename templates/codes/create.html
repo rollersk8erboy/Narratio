@@ -1,0 +1,58 @@
+{% extends "bases/content.html" %}
+
+{% block title %} Crear nuevo código QR {% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col">
+        <form class="card" action="{{ url_for('codes.store') }}" method="post" enctype="multipart/form-data" autocomplete="off">
+            <div class="card-body">
+                <div class="form-floating mb-3">
+                    <input id="mycodename" type="text" class="form-control bg-light" placeholder="rollersk8erboy" name="mycodename" required>
+                    <label for="mycodename">Nombre</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <select id="myfiletype" class="form-select bg-light" name="myfiletype" onchange="toggleInputType()">
+                        <option value="" disabled>SELECCIONA UNA OPCIÓN</option>
+                        <option value="txt" selected>TXT</option>
+                        <option value="mp3">MP3</option>
+                    </select>
+                    <label for="myfiletype">Archivo</label>
+                </div>
+                <div id="description" class="form-floating mb-3">
+                    <textarea id="mydescription" class="form-control bg-light" placeholder="rollersk8erboy" name="mydescription" oninput="resizeArea(this)" required></textarea>
+                    <label for="mydescription">Descripción</label>
+                </div>
+                <div id="audio" class="mb-3">
+                    <input class="form-control bg-light" type="file" id="myaudio" name="myaudio" accept=".mp3,audio/mpeg">
+                </div>
+                <div class="form-floating mb-3">
+                    <select id="mylanguage" class="form-select bg-light" name="mylanguage" required>
+                        <option value="" selected disabled>SELECCIONA UNA OPCIÓN</option>
+                        <option value="es">Español</option>
+                        <option value="en">Inglés</option>
+                    </select>
+                    <label for="mylanguage">Idioma</label>
+                </div>
+            </div>
+            <div class="card-footer d-grid justify-content-md-end">
+                <button type="submit" class="btn btn-success">↓ Guardar código QR</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/body.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/content.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/overlay.css') }}">
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='js/alerts.js') }}"></script>
+<script src="{{ url_for('static', filename='js/sidebar.js') }}"></script>
+<script src="{{ url_for('static', filename='js/forms.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "bases/content.html" %}
+
+{% block title %} Lector {% endblock %}
+
+{% block content %}
+<div class="scanner">
+    <div class="row">
+        <div class="col">
+            <div class="card bg-transparent">
+                <div class="card-body">
+                    <div id="reader" class="w-100"></div>
+                </div>
+                <div class="card-footer bg-transparent text-center">
+                    <button type="button" class="btn btn-primary" onclick="launchReader()">⛶ Iniciar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/body.css') }}">
+{% if session.get('userid') %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/content.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/overlay.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/reader.css') }}">
+{% endif %}
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='js/reader.js') }}"></script>
+{% if session.get('userid') %}
+<script src="{{ url_for('static', filename='js/sidebar.js') }}"></script>
+{% endif %}
+{% endblock %}

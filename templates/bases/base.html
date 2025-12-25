@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:;base64,=">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <title>Narratio - {% block title %} {% endblock %}</title>
+    {% block css %} {% endblock %}
+    {% block js %} {% endblock %}
+</head>
+
+<body>
+    {% block base %}{% endblock %}
+
+    {% for message in get_flashed_messages() %}
+    <script>
+        getAlert('{{ message }}');
+    </script>
+    {% endfor %}
+</body>
+
+</html>

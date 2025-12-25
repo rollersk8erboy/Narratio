@@ -1,0 +1,36 @@
+{% extends "bases/content.html" %}
+
+{% block title %} Código QR {% endblock %}
+
+{% block content %}
+<div class="scanner">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body text-center p-4">
+                    <div class="border p-2 mb-4">
+                        <img src="{{ url_for('static', filename='svg.nosync/' ~ code.codeid ~ '.svg') }}">
+                    </div>
+                    <audio controls class="w-100">
+                        <source src="{{ url_for('static', filename='mp3.nosync/' ~ code.codeid ~ '.mp3') }}" type="audio/mpeg">
+                    </audio>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/body.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/content.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/overlay.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/reader.css') }}">
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='js/alerts.js') }}"></script>
+<script src="{{ url_for('static', filename='js/sidebar.js') }}"></script>
+{% endblock %}

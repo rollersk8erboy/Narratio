@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Departure Mono Regular';
+    src: url('/static/fonts/DepartureMono-Regular.otf')
+}
+
+* {
+    border: none !important;
+}
+
+body {
+    font-family: "Departure Mono Regular", monospace;
+}

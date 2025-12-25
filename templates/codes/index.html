@@ -1,0 +1,82 @@
+{% extends "bases/content.html" %}
+
+{% block title %} Biblioteca QR {% endblock %}
+
+{% block content %}
+
+<form class="card mb-3" method="post" autocomplete="off">
+    <div class="card-body row align-items-center">
+        <div class="col">
+            <input class="form-control bg-light" placeholder="Buscar" type="text" name="q" value="{{ q }}">
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-dark" type="submit">▼ Filtrar</button>
+        </div>
+    </div>
+</form>
+
+<form class="card mb-3" method="post">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-borderless">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for code in codes %}
+                    <tr>
+                        <td>{{ code.codename }}</td>
+                        <td class="btn-group btn-group">
+                            <a class="btn btn-primary" href="{{ url_for('codes.show', mycodeid=code.codeid) }}">Visualizar</a>
+                            <a class="btn btn-warning" href="{{ url_for('codes.edit', mycodeid=code.codeid) }}">Editar</a>
+                            <button class="btn btn-danger" type="button" onclick="confirmDestroy(this)" data-url="{{ url_for('codes.destroy', mycodeid=code.codeid) }}">Eliminar</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer d-grid justify-content-md-end">
+        <a class="btn btn-success" href="{{ url_for('codes.create') }}">+ Crear nuevo código QR</a>
+    </div>
+</form>
+
+<ul class="pagination justify-content-center">
+    <li class="page-item {% if p == 1 %} disabled {% endif %}">
+        <a class="page-link" href="{{ url_for('codes.index', p=1, q=(q if q else None)) }}">Primera</a>
+    </li>
+    <li class="page-item {% if p == 1 %} disabled {% endif %}">
+        <a class="page-link" href="{{ url_for('codes.index', p=p-1, q=(q if q else None)) }}">Anterior</a>
+    </li>
+    <li class="page-item disabled">
+        <a class="page-link" href="#">{{ p }}</a>
+    </li>
+    <li class="page-item">
+        <a class="page-link" href="{{ url_for('codes.index', p=p+1, q=(q if q else None)) }}">{{ p + 1 }}</a>
+    </li>
+    <li class="page-item">
+        <a class="page-link" href="{{ url_for('codes.index', p=p+2, q=(q if q else None)) }}">{{ p + 2 }}</a>
+    </li>
+    <li class="page-item">
+        <a class="page-link" href="{{ url_for('codes.index', p=p+1, q=(q if q else None)) }}">Siguiente</a>
+    </li>
+</ul>
+
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/body.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/content.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/overlay.css') }}">
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='js/alerts.js') }}"></script>
+<script src="{{ url_for('static', filename='js/sidebar.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "bases/base.html" %}
+
+{% block title %} Autenticación {% endblock %}
+
+{% block base %}
+<form class="authentication" action="{{ url_for('auth.store') }}" method="post" autocomplete="off">
+    <h1 class="text-white">NARRATIO</h1>
+    <p class="text-white">AUDIOGUÍA QR PARA ESPACIOS PÚBLICOS</p>
+    <div class="form-floating">
+        <input id="myusername" type="text" class="form-control" name="myusername" placeholder="rollersk8erboy" required>
+        <label for="myusername">Usuario</label>
+    </div>
+    <div class="form-floating">
+        <input id="mypassword" type="password" class="form-control" name="mypassword" placeholder="rollersk8erboy" required>
+        <label for="mypassword">Contraseña</label>
+    </div>
+    <button class="btn" type="submit">Iniciar sesión</button>
+</form>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/body.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='js/alerts.js') }}"></script>
+{% endblock %}
