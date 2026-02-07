@@ -1,0 +1,4 @@
+ALL = 1
+ONE = 2
+VALUE = 3
+

@@ -1,0 +1,11 @@
+<div class="sidebar">
+    <div class="title">
+        <h2>NARRATIO</h2>
+        <p>AUDIOGUÍA QR</p>
+    </div>
+    <div class="body">
+        <a href="{{ url_for('codes.index') }}" class="{{ 'active' if request.endpoint == 'codes.index' else '' }}"><i class='fas fa-home fa-fw'></i> Biblioteca QR </a>
+        <a href="{{ url_for('reader.index') }}" class="{{ 'active' if request.endpoint == 'reader.index' else '' }}"><i class='fas fa-qrcode fa-fw'></i> Lector </a>
+        <a href="{{ url_for('auth.destroy') }}"><i class="fas fa-arrow-left fa-fw"></i> Salir </a>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+{% extends "bases/base.html" %}
+
+{% block base %}
+
+{% if session.get('userid') %}
+{% include 'bases/navbar.html' %}
+{% include 'bases/sidebar.html' %}
+{% endif %}
+
+<div class="content">
+    <div class="overlay" onclick="toggleSidebar()"></div>
+    {% block content %}{% endblock %}
+</div>
+{% endblock %}

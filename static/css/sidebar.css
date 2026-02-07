@@ -1,0 +1,41 @@
+.sidebar {
+    position: fixed;
+    z-index: 3;
+    width: 250px;
+    height: 100vh;
+    margin-top: 50px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(34, 37, 41);
+}
+
+.sidebar .title {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background: rgb(62, 93, 109);
+}
+
+.sidebar .body {
+    padding-top: 50px;
+}
+
+.sidebar .body a {
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    color: rgb(255, 255, 255);
+}
+
+.sidebar a.active {
+    background: rgb(62, 93, 109);
+}
+
+.sidebar .body a:hover {
+    background: rgb(62, 93, 109);
+}
+
+@media screen and (max-width: 767px) {
+    .sidebar {
+        margin-left: -250px;
+    }
+}

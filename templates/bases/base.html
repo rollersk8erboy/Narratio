@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:;base64,=">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/js/all.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <title>Narratio - {% block title %} {% endblock %}</title>
+    {% block css %} {% endblock %}
+    {% block js %} {% endblock %}
+</head>
+
+<body>
+    {% block base %}{% endblock %}
+
+    {% for message in get_flashed_messages() %}
+    <script>
+        getAlert('{{ message }}');
+    </script>
+    {% endfor %}
+</body>
+
+</html>
