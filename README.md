@@ -6,7 +6,7 @@
 
 - **Generación automática de códigos QR**
 	- Permite la carga directa de archivos en formato MP3
-	- Incluye un editor de texto para convertirlo automáticamente en una narración fluida y natural.
+	- Incluye un editor de texto para convertirlo automáticamente en una narración.
 
  ## Galería
 
